@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CocktailApp</string>
+    <string name="text_cocktails">Cocktails</string>
+    <string name="text_favorites">Favorites</string>
+    <string name="text_account">Account</string>
+
+    <string name="failure_response">Error al hacer la llamada con el servidor</string>
+
+</resources>

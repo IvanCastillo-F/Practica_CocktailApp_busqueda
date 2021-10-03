@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/layout/cocktail_fragment.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/layout/favorite_fragment.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/layout/progress_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/layout/row_cocktail.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/menu/bottom_menu_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/amali/Desktop/Escuela/CocktailApp/app/src/main/res/xml/network_security_config.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/maste/Documents/Universidad/Android/CocktailApp-master/app/src/main/res/layout/cocktail_fragment.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/maste/Documents/Universidad/Android/Practica_CocktailApp_busqueda/CocktailApp/app/src/main/res/layout/cocktail_fragment.xml" value="0.17300724637681159" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
