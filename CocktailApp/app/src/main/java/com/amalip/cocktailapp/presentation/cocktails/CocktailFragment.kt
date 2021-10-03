@@ -2,6 +2,7 @@ package com.amalip.cocktailapp.presentation.cocktails
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import com.amalip.cocktailapp.R
 import com.amalip.cocktailapp.core.extension.failure
@@ -31,7 +32,9 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
             failure(failure, ::handleFailure)
 
             doGetCocktailsByName("margarita")
+
         }
+
     }
 
     override fun onViewStateChanged(state: BaseViewState?) {
@@ -40,6 +43,8 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
             is CocktailViewState.CocktailsReceived -> setUpAdapter(state.cocktails)
         }
     }
+
+
 
     private fun setUpAdapter(cocktails: List<Cocktail>) {
         adapter = CocktailAdapter()
@@ -53,6 +58,22 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
 
     override fun setBinding(view: View) {
         binding = CocktailFragmentBinding.bind(view)
+
+        binding.svCocktail.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+               override fun onQueryTextSubmit(p0: String?): Boolean {
+                   cocktailViewModel.apply{
+                       doGetCocktailsByName(p0.toString())
+                   }
+                   return true
+               }
+
+               override fun onQueryTextChange(p0: String?): Boolean {
+                   cocktailViewModel.apply{
+                       doGetCocktailsByName(p0.toString())
+                   }
+                   return true
+               }
+           })
 
         binding.lifecycleOwner = this
     }
