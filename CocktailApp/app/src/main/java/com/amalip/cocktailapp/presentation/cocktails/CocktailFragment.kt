@@ -45,7 +45,6 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
     }
 
 
-
     private fun setUpAdapter(cocktails: List<Cocktail>) {
         adapter = CocktailAdapter()
 
@@ -59,23 +58,31 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
     override fun setBinding(view: View) {
         binding = CocktailFragmentBinding.bind(view)
 
-        binding.svCocktail.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-               override fun onQueryTextSubmit(p0: String?): Boolean {
-                   cocktailViewModel.apply{
-                       doGetCocktailsByName(p0.toString())
-                   }
-                   return true
-               }
+        binding.svCocktail.setOnQueryTextListener(searchListener)
 
-               override fun onQueryTextChange(p0: String?): Boolean {
-                   cocktailViewModel.apply{
-                       doGetCocktailsByName(p0.toString())
-                   }
-                   return true
-               }
-           })
+
 
         binding.lifecycleOwner = this
+    }
+
+    private val searchListener = object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(p0: String?): Boolean {
+            cocktailViewModel.apply{
+                if(p0.toString() == ""){ doGetCocktailsByName("margarita") }
+                else{   doGetCocktailsByName(p0.toString())  }
+
+
+            }
+            return true
+        }
+
+        override fun onQueryTextChange(p0: String?): Boolean {
+            cocktailViewModel.apply{
+                if(p0.toString() == ""){ doGetCocktailsByName("margarita") }
+                else{   doGetCocktailsByName(p0.toString())  }
+            }
+            return true
+        }
     }
 
 
