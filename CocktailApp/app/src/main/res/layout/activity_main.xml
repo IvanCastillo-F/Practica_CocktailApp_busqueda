@@ -32,6 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_menu_nav" />
 
+
         <include
             android:id="@+id/progressView"
             layout="@layout/progress_layout"
