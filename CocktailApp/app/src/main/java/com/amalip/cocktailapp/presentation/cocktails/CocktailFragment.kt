@@ -73,30 +73,10 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
         binding.svCocktail.setOnQueryTextListener(searchListener)
 
         binding.swButton.setOnClickListener(){
-            if (grid){
 
-                binding.rcCocktails.apply {
-                    adapter = this@CocktailFragment.adapter
-                }
-
-                binding.rcCocktails.layoutManager = LinearLayoutManager(requireContext())
-
-            }else{
-
-               binding.rcCocktails.apply {
-                    adapter = this@CocktailFragment.adapterGrid
-                }
-
-                binding.rcCocktails.layoutManager = GridLayoutManager(requireContext() ,3)
-            }
+            bandedera(grid)
             grid = !grid
         }
-
-        /* val gridManager = GridLayoutManager(requireContext() ,3, GridLayoutManager.VERTICAL,false)
-
-        binding.rcCocktails.layoutManager = gridManager*/
-
-
 
         binding.lifecycleOwner = this
     }
@@ -105,7 +85,7 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
 
     private val searchListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(p0: String?): Boolean {
-            binding.rcCocktails.layoutManager = LinearLayoutManager(requireContext())
+           bandedera(grid)
             cocktailViewModel.apply{
 
                 if(p0.toString() == ""){ doGetCocktailsByName("margarita") }
@@ -116,7 +96,7 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
         }
 
         override fun onQueryTextChange(p0: String?): Boolean {
-            binding.rcCocktails.layoutManager = LinearLayoutManager(requireContext())
+            bandedera(grid)
             cocktailViewModel.apply{
 
                 if(p0.toString() == ""){ doGetCocktailsByName("margarita") }
@@ -127,5 +107,23 @@ class CocktailFragment : BaseFragment(R.layout.cocktail_fragment) {
         }
     }
 
+    private fun bandedera(ban: Boolean){
+        if (ban){
+
+            binding.rcCocktails.apply {
+                adapter = this@CocktailFragment.adapter
+            }
+
+            binding.rcCocktails.layoutManager = LinearLayoutManager(requireContext())
+
+        }else{
+
+            binding.rcCocktails.apply {
+                adapter = this@CocktailFragment.adapterGrid
+            }
+
+            binding.rcCocktails.layoutManager = GridLayoutManager(requireContext() ,3)
+        }
+    }
 
 }
